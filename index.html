@@ -1,29 +1,80 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Señoritas</title>
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: Georgia, serif;
-      background: #f7efe6;
-      color: #3a2a24;
-      text-align: center;
-    }
-    h1 { font-size: 3rem; margin: 0 0 .5rem; letter-spacing: .05em; }
-    p { font-size: 1.1rem; opacity: .75; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tolvmannsturen 2026 – Innlogging</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--coral:#ff672f;--plum:#2e293d;--plum-deep:#151122;--paper:#faf6ef}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--plum-deep);color:var(--paper);font-family:'Lora',serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1.5rem;position:relative;overflow:hidden}
+h1,h2,.sans{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.02em}
+.star{position:absolute;font-family:'Oswald';color:var(--coral);opacity:.55;animation:tw 3s ease-in-out infinite alternate}
+@keyframes tw{from{transform:scale(.8) rotate(0)}to{transform:scale(1.2) rotate(25deg)}}
+.boks{width:100%;max-width:460px;background:var(--plum);border:1px solid rgba(250,246,239,.25);border-radius:14px;padding:2.8rem 2.4rem;position:relative;z-index:2}
+.kicker{font-family:'Oswald';font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--coral);margin-bottom:.8rem;text-align:center}
+h1{font-size:clamp(1.8rem,6vw,2.6rem);font-weight:700;line-height:1.05;text-align:center}
+h1 b{color:var(--coral)}
+.under{text-align:center;font-style:italic;color:rgba(250,246,239,.7);margin:.9rem 0 2rem;font-size:.98rem}
+label{display:block;font-family:'Oswald';font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(250,246,239,.6);margin-bottom:.5rem}
+input[type=password]{width:100%;background:var(--plum-deep);border:1px solid rgba(250,246,239,.3);border-radius:8px;color:var(--paper);font-family:'Lora',serif;font-size:1.1rem;padding:.85rem 1rem;outline:none;transition:border-color .2s}
+input[type=password]:focus{border-color:var(--coral)}
+button{width:100%;margin-top:1.2rem;background:var(--coral);color:var(--plum-deep);border:none;border-radius:8px;font-family:'Oswald';font-weight:700;font-size:.95rem;letter-spacing:.2em;text-transform:uppercase;padding:.95rem;cursor:pointer;transition:transform .15s,background .2s}
+button:hover{transform:translateY(-2px);background:#ff7d4d}
+.feil{margin-top:1rem;color:var(--coral);font-style:italic;text-align:center;min-height:1.4em;font-size:.95rem}
+.fot{position:relative;z-index:2;margin-top:2.5rem;font-family:'Oswald';font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(250,246,239,.4);text-align:center}
+</style>
 </head>
 <body>
-  <main>
-    <h1>Señoritas</h1>
-    <p>Nettsiden kommer snart.</p>
-  </main>
+
+<span class="star" style="top:14%;left:12%">✦</span>
+<span class="star" style="top:22%;right:14%;animation-delay:.9s">✦</span>
+<span class="star" style="bottom:18%;left:18%;animation-delay:1.5s">✦</span>
+<span class="star" style="bottom:28%;right:10%;animation-delay:.4s">✦</span>
+
+<div class="boks">
+  <div class="kicker">Stengt dør · Kun for de innvidde</div>
+  <h1>Tolvmanns<br><b>ekspedisjonen</b><br>2026</h1>
+  <p class="under">Her kommer bare de 12 inn.<br>Skriv passordet – du vet hvilket.</p>
+  <form id="login" autocomplete="off">
+    <label for="pw">Passord</label>
+    <input type="password" id="pw" placeholder="•••••••••••••" autofocus>
+    <button type="submit">Slipp meg inn →</button>
+  </form>
+  <div class="feil" id="feil"></div>
+</div>
+
+<div class="fot">Årets arrangør: Thorbjørn Danbolt</div>
+
+<script>
+/* SHA-256 (kompakt implementasjon) */
+function sha256(ascii){function rr(v,a){return(v>>>a)|(v<<(32-a))}var mP=Math.pow,mW=mP(2,32),len=ascii.length,result='',words=[],aBit=len*8,hash=sha256.h=sha256.h||[],k=sha256.k=sha256.k||[],pc=k.length,ic={};for(var cand=2;pc<64;cand++){if(!ic[cand]){for(var i=0;i<313;i+=cand)ic[i]=cand;hash[pc]=(mP(cand,.5)*mW)|0;k[pc++]=(mP(cand,1/3)*mW)|0}}ascii+='\x80';while(ascii.length%64-56)ascii+='\x00';for(var i=0;i<ascii.length;i++){var j=ascii.charCodeAt(i);if(j>>8)return;words[i>>2]|=j<<((3-i)%4)*8}words[words.length]=((aBit/mW)|0);words[words.length]=(aBit);for(var j=0;j<words.length;){var w=words.slice(j,j+=16),oldHash=hash;hash=hash.slice(0,8);for(var i=0;i<64;i++){var w15=w[i-15],w2=w[i-2],a=hash[0],e=hash[4],t1=hash[7]+(rr(e,6)^rr(e,11)^rr(e,25))+((e&hash[5])^((~e)&hash[6]))+k[i]+(w[i]=(i<16)?w[i]:(w[i-16]+(rr(w15,7)^rr(w15,18)^(w15>>>3))+w[i-7]+(rr(w2,17)^rr(w2,19)^(w2>>>10)))|0),t2=(rr(a,2)^rr(a,13)^rr(a,22))+((a&hash[1])^(a&hash[2])^(hash[1]&hash[2]));hash=[(t1+t2)|0].concat(hash);hash[4]=(hash[4]+t1)|0}for(var i=0;i<8;i++)hash[i]=(hash[i]+oldHash[i])|0}for(var i=0;i<8;i++){for(var j=3;j+1;j--){var b=(hash[i]>>(j*8))&255;result+=((b<16)?0:'')+b.toString(16)}}return result}
+
+var RIKTIG='8e805e94bff713ac91a46f0049c424a77fdecbb669658ffd5a70d750ee63a654';
+var GLIPP=[
+  'Feil. Prøv igjen – tenk klær og anatomi.',
+  'Nope. Det der ville ikke engang bålet tatt.',
+  'Feil passord. Ekspedisjonen forblir hemmelig.',
+  'Bra forsøk, men nei.'
+];
+var teller=0;
+
+document.getElementById('login').addEventListener('submit',function(e){
+  e.preventDefault();
+  var pw=document.getElementById('pw').value;
+  if(sha256(pw)===RIKTIG){
+    sessionStorage.setItem('tur-ok',RIKTIG);
+    location.href='tur.html';
+  }else{
+    document.getElementById('feil').textContent=GLIPP[teller++%GLIPP.length];
+    document.getElementById('pw').value='';
+    document.getElementById('pw').focus();
+  }
+});
+</script>
+
 </body>
 </html>
