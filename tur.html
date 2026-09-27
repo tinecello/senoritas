@@ -23,16 +23,16 @@ nav .logo b{color:var(--coral)}
 nav .links{display:flex;gap:1.3rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;font-family:'Oswald'}
 nav .links a{text-decoration:none;color:rgba(250,246,239,.75);cursor:pointer}
 nav .links a:hover{color:var(--coral)}
-@media(max-width:760px){nav .links{display:none}}
+@media(max-width:900px){nav .links{display:none}}
 
 /* HERO – korall banner */
 .hero{min-height:96vh;background:var(--coral);color:var(--plum-deep);display:flex;align-items:center;padding:7rem 0 4rem;position:relative;overflow:hidden}
 .hero .tag{position:absolute;top:6.5rem;right:1.5rem;background:var(--plum-deep);color:var(--paper);font-family:'Oswald';font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;padding:.5rem 1.1rem;border-radius:99px}
 .hero h1{font-size:clamp(3rem,10vw,7.2rem);font-weight:700;line-height:.95;letter-spacing:-.01em}
 .hero h1 .line2{color:var(--paper);-webkit-text-stroke:2px var(--plum-deep)}
-.hero p{margin-top:1.8rem;max-width:46ch;font-size:1.15rem}
+.hero p{margin-top:1.8rem;max-width:52ch;font-size:1.15rem}
 .hero .vert{position:absolute;right:2rem;bottom:3rem;writing-mode:vertical-rl;font-family:'Oswald';letter-spacing:.3em;text-transform:uppercase;font-size:.75rem;opacity:.8}
-@media(max-width:640px){.hero .vert{display:none}.hero .tag{position:static;display:inline-block;margin-bottom:1.5rem}}
+@media(max-width:640px){.hero .vert{display:none}.hero{align-items:flex-start}.hero h1{font-size:clamp(2rem,11vw,3.4rem)}.hero h1 .line2{-webkit-text-stroke:1.4px var(--plum-deep);overflow-wrap:break-word;word-break:break-word}.hero .tag{position:static;display:inline-block;margin-top:1.6rem}}
 
 /* Tall-stripe */
 .stats{background:var(--plum-deep);color:var(--paper);padding:3.5rem 0}
@@ -46,32 +46,38 @@ section{padding:5rem 0}
 .kicker{font-family:'Oswald';font-size:.78rem;letter-spacing:.25em;text-transform:uppercase;color:var(--coral);margin-bottom:.7rem}
 h2{font-size:clamp(1.9rem,4.5vw,2.9rem);font-weight:700;line-height:1.05;margin-bottom:2.2rem}
 
-/* Program – kapitler */
-.kap{display:grid;grid-template-columns:110px 1fr;gap:1.6rem;padding:2rem 0;border-top:2px solid var(--ink)}
+/* Program – kapitler med ordrett tekst */
+.kap{padding:2.4rem 0;border-top:2px solid var(--ink)}
+.kap .hode{display:grid;grid-template-columns:110px 1fr;gap:1.6rem;margin-bottom:1.2rem}
 .kap .nr{font-family:'Oswald';font-weight:700;font-size:2.6rem;color:var(--coral);line-height:1}
-.kap h3{font-size:1.25rem;margin-bottom:.7rem}
-.kap ul{list-style:none}
-.kap li{padding:.35rem 0;border-bottom:1px dotted #cbbfa8;display:flex;gap:1.1rem}
-.kap li:last-child{border:none}
-.kap li b{font-family:'Oswald';font-weight:600;min-width:60px;color:var(--plum)}
-@media(max-width:600px){.kap{grid-template-columns:70px 1fr}.kap .nr{font-size:1.9rem}}
+.kap h3{font-size:1.3rem;line-height:1.2}
+.kap p{margin-bottom:1rem;max-width:64ch}
+.kap p:last-child{margin-bottom:0}
+.kap .brev{font-style:italic}
+@media(max-width:600px){.kap .hode{grid-template-columns:70px 1fr}.kap .nr{font-size:1.9rem}}
 
-/* Lørdagsturen – romslig seksjon med plass til mer info */
-.lordag{background:var(--plum);color:var(--paper)}
-.lordag .inn{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:start}
-.lordag h2{color:var(--paper)}
-.lordag p{color:rgba(250,246,239,.88);margin-bottom:1.1rem}
-.lordag .fakta{border:1px solid rgba(250,246,239,.3);border-radius:10px;padding:1.6rem 1.8rem;background:rgba(21,17,34,.35)}
-.lordag .fakta h3{color:var(--coral);font-size:.95rem;letter-spacing:.15em;margin-bottom:1rem}
-.lordag .fakta div{padding:.7rem 0;border-bottom:1px solid rgba(250,246,239,.2);display:flex;justify-content:space-between;gap:1rem;font-size:.95rem}
-.lordag .fakta div:last-child{border:none}
-.lordag .fakta span:first-child{font-family:'Oswald';font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,246,239,.55)}
-@media(max-width:820px){.lordag .inn{grid-template-columns:1fr}}
+/* Fellesturer – én hel seksjon per tur */
+.tur-blk{background:var(--plum);color:var(--paper);border-radius:12px;padding:2.4rem 2.4rem 2rem;margin-bottom:2.2rem}
+.tur-blk .dag{font-family:'Oswald';font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:var(--coral);margin-bottom:.5rem}
+.tur-blk h3{font-size:clamp(1.4rem,3vw,1.9rem);line-height:1.1;margin-bottom:1.2rem;color:var(--paper)}
+.tur-blk p{color:rgba(250,246,239,.9);margin-bottom:1rem;max-width:62ch}
+.tur-blk .rute{font-family:'Oswald';font-weight:600;letter-spacing:.05em;font-size:.95rem;color:var(--coral);margin:1.2rem 0;text-transform:none}
+.tur-blk .fakta{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.4rem 0}
+.tur-blk .fakta span{border:1px solid rgba(250,246,239,.35);border-radius:99px;padding:.35rem 1rem;font-family:'Oswald';font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,246,239,.85)}
+.turlink{display:inline-block;background:var(--coral);color:var(--plum-deep);text-decoration:none;font-family:'Oswald';font-weight:700;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;padding:.85rem 1.6rem;border-radius:8px;transition:transform .15s,background .2s}
+.turlink:hover{transform:translateY(-2px);background:#ff7d4d}
+.alt-turer{display:flex;flex-wrap:wrap;gap:1rem}
+.alt-turer a{flex:1;min-width:220px;border:1px dashed var(--coral);border-radius:10px;padding:1.1rem 1.3rem;text-decoration:none;transition:background .2s}
+.alt-turer a:hover{background:rgba(255,103,47,.08)}
+.alt-turer .t{font-family:'Oswald';font-weight:600;letter-spacing:.05em;color:var(--ink)}
+.alt-turer .l{font-size:.85rem;color:#6b6472;font-style:italic;margin-top:.2rem}
+@media(max-width:640px){.tur-blk{padding:1.6rem 1.4rem}}
 
-/* Foredrag – 12 innlegg, alle holder, alle hører */
+/* Foredrag – 12 innlegg */
 .foredrag{background:var(--plum-deep);color:var(--paper)}
-.foredrag .lead{max-width:56ch;color:rgba(250,246,239,.88);margin-bottom:2.5rem;font-size:1.05rem}
+.foredrag .lead{max-width:62ch;color:rgba(250,246,239,.88);margin-bottom:1.2rem;font-size:1.05rem}
 .foredrag .lead b{color:var(--coral)}
+.foredrag .regler{max-width:62ch;color:rgba(250,246,239,.75);font-style:italic;margin-bottom:2.5rem;font-size:.98rem}
 .slotrutenett{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
 .slot{border:1px solid rgba(250,246,239,.3);border-radius:10px;padding:1.2rem 1.1rem;transition:border-color .2s,transform .2s}
 .slot:hover{border-color:var(--coral);transform:translateY(-4px)}
@@ -89,26 +95,34 @@ h2{font-size:clamp(1.9rem,4.5vw,2.9rem);font-weight:700;line-height:1.05;margin-
 .konsert p{max-width:52ch;margin:0 auto}
 .konsert .details{display:flex;justify-content:center;gap:2.5rem;margin-top:2.2rem;flex-wrap:wrap;font-family:'Oswald';font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;opacity:.75}
 
-/* Minner – videoer og bilder fra tidligere turer */
+/* Praktisk – fasiliteter og pakkeliste */
+.praktisk .kolonner{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.praktisk h3{color:var(--coral);font-size:1.05rem;letter-spacing:.12em;margin-bottom:1rem}
+.praktisk p{margin-bottom:1rem}
+.praktisk ul{list-style:none}
+.praktisk li{padding:.55rem 0;border-bottom:1px dotted #cbbfa8;line-height:1.5}
+.praktisk li:last-child{border:none}
+.praktisk li::before{content:"—";color:var(--coral);margin-right:.7rem;font-family:'Oswald'}
+.praktisk .prosjektoren{margin-top:2.5rem;border:1px dashed var(--coral);border-radius:10px;padding:1.4rem 1.8rem;font-size:.98rem}
+.praktisk .prosjektoren b{color:var(--coral);font-family:'Oswald';text-transform:uppercase;letter-spacing:.15em;font-size:.72rem;display:block;margin-bottom:.4rem}
+@media(max-width:720px){.praktisk .kolonner{grid-template-columns:1fr}}
+
+/* Minner */
 .minner .lead{max-width:56ch;margin-bottom:2.2rem;color:#4a4453}
 .vids{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2.5rem}
 .vids figure{background:var(--plum);border-radius:10px;overflow:hidden}
 .vids video{width:100%;aspect-ratio:16/9;object-fit:cover;background:#000}
-.vids figcaption{padding:.8rem 1.1rem;color:rgba(250,246,239,.85);font-family:'Oswald';font-size:.75rem;letter-spacing:.15em;text-transform:uppercase}
 .bilder{display:grid;grid-template-columns:1.3fr 1fr;gap:1.5rem}
 .bilder figure{border-radius:10px;overflow:hidden}
 .bilder figure:first-child{grid-row:span 2}
 .bilder img{width:100%;height:100%;object-fit:cover}
 @media(max-width:720px){.vids{grid-template-columns:1fr}.bilder{grid-template-columns:1fr}.bilder figure:first-child{grid-row:auto}}
 
-/* Praktisk – fasiliteter og pakkeliste */
-.praktisk .kolonner{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
-.praktisk h3{color:var(--coral);font-size:1.05rem;letter-spacing:.12em;margin-bottom:1rem}
-.praktisk ul{list-style:none}
-.praktisk li{padding:.55rem 0;border-bottom:1px dotted #cbbfa8;line-height:1.5}
-.praktisk li:last-child{border:none}
-.praktisk li::before{content:"—";color:var(--coral);margin-right:.7rem;font-family:'Oswald'}
-@media(max-width:720px){.praktisk .kolonner{grid-template-columns:1fr}}
+/* Signatur */
+.signatur{background:var(--paper);text-align:center;padding:4rem 1.5rem}
+.signatur .hilsen{font-style:italic;font-size:1.3rem;max-width:34ch;margin:0 auto 1.4rem}
+.signatur .hvem{font-family:'Oswald';font-weight:700;font-size:1.1rem;text-transform:uppercase;letter-spacing:.1em}
+.signatur .rolle{font-family:'Oswald';font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);margin-top:.3rem}
 
 footer{background:var(--plum-deep);color:var(--paper);text-align:center;padding:4rem 1.5rem}
 footer .mark{font-family:'Oswald';font-weight:700;font-size:clamp(2rem,7vw,4.2rem);text-transform:uppercase;letter-spacing:.05em}
@@ -129,7 +143,7 @@ if (sessionStorage.getItem('tur-ok') !== '8e805e94bff713ac91a46f0049c424a77fdecb
 <nav>
   <a class="logo" href="#top">Tolvmanns<b>ekspedisjonen</b></a>
   <div class="links">
-    <a href="#program">Program</a><a href="#lordagsturen">Fellesturer</a><a href="#foredrag">Foredrag</a>
+    <a href="#program">Program</a><a href="#fellesturer">Fellesturer</a><a href="#foredrag">Foredrag</a>
     <a href="#konsert">Konsert</a><a href="#praktisk">Praktisk</a><a href="#minner">Minner</a>
     <a onclick="sessionStorage.removeItem('tur-ok');location.href='index.html'">Logg ut</a>
   </div>
@@ -139,7 +153,7 @@ if (sessionStorage.getItem('tur-ok') !== '8e805e94bff713ac91a46f0049c424a77fdecb
   <span class="tag">Arr: Thorbjørn</span>
   <div class="wrap">
     <h1>Årets<br><span class="line2">Ekspedisjon</span><br>2026</h1>
-    <p>Tolv karer rundt seksti inntar Lognvik fjellstue fra torsdag 29. oktober til søndag 1. november – på rundgang, som skikken er. I år er det Thorbjørn som står for arrangementet. Her finner du programmet, årets fellesturer og alt det praktiske.</p>
+    <p>Nå nærmer det seg Lognvik 2026. Fra torsdag 29. oktober til søndag 1. november har vi hele fjellstua for oss selv. Planen er to turdager, tre gode middager og tolv foredrag.</p>
   </div>
   <div class="vert">Lognvik 2026 — kun for de innvidde</div>
 </header>
@@ -160,80 +174,80 @@ if (sessionStorage.getItem('tur-ok') !== '8e805e94bff713ac91a46f0049c424a77fdecb
     <h2>Programmet – i fire kapitler</h2>
 
     <div class="kap">
-      <div class="nr">01</div>
-      <div>
-        <h3>Torsdag 29. oktober – Innrykk og grill</h3>
-        <ul>
-          <li><b>Fra ca. 10</b> Thorbjørn er på plass – dere kommer etter hvert som det passer</li>
-          <li><b>Utover</b> Rusletur til Lognvikvatnet eller gårdstunet, prøv fiskelykken – eller sett deg foran peisen og påstå at du «holder oversikten»</li>
-          <li><b>Kveld</b> Grillen fyres opp når de fleste har kommet</li>
-          <li><b>Etter maten</b> Årets faglige program åpner: fire foredrag</li>
-        </ul>
+      <div class="hode">
+        <div class="nr">01</div>
+        <h3>Torsdag 29. oktober – innrykk og grill</h3>
       </div>
+      <p>Jeg overnatter i Grungedal onsdag og er på Lognvik fra torsdag i titiden. Dere kommer etter hvert som det passer og finner dere til rette. Ta gjerne en rusletur ned til Lognvikvatnet eller bortom det gamle gårdstunet. Den som vil, kan prøve fiskelykken. Det er også fullt tillatt å sette seg foran peisen med en øl eller et glass vin og påstå at man «hjelper til med å holde oversikten».</p>
+      <p>Når de fleste har kommet, sånn litt utpå, fyrer vi opp grillen. Etter maten åpner vi årets faglige program med fire foredrag. Temaet blir som kjent kjent først når foredragsholderen reiser seg. Ingen får dermed anledning til å lese seg opp på forhånd for å stille plagsomt presise spørsmål.</p>
     </div>
 
     <div class="kap">
-      <div class="nr">02</div>
-      <div>
+      <div class="hode">
+        <div class="nr">02</div>
         <h3>Fredag 30. oktober – Vierli, Vidsyn og Silkedalen</h3>
-        <ul>
-          <li><b>Formiddag</b> Fellestur I: Vierli → Vidsyn → Oksatjønn → Silkedalen (ca. 6 km) – se egen seksjon under</li>
-          <li><b>Ettermiddag</b> Badstue, fiske, en hvil eller biljardkamp</li>
-          <li><b>Senere</b> Fire nye foredrag</li>
-          <li><b>Kveld</b> Pinnekjøtt à la Thorbjørn og Jan Olav</li>
-        </ul>
       </div>
+      <p>Etter frokost kjører vi omtrent 15–20 minutter til Vierli og legger ut på årets første fellestur – se egen seksjon under. Tilbake på fjellstua er det tid til badstue, fiske, en hvil eller en biljardkamp mellom to menn som begge hevder at de egentlig var ganske gode før. Senere følger fire nye foredrag.</p>
+      <p>Fredag kveld serveres pinnekjøtt à la Thorbjørn og Jan Olav. Vi satser på et langt måltid, fyr i peisen og samtaler som beveger seg stadig lenger bort fra der de begynte.</p>
     </div>
 
     <div class="kap">
-      <div class="nr">03</div>
-      <div>
+      <div class="hode">
+        <div class="nr">03</div>
         <h3>Lørdag 31. oktober – Bossnuten</h3>
-        <ul>
-          <li><b>Formiddag</b> Fellestur II: Bossnuten – helgens krevende tur (8,8 km t/r, 500 høydemeter)</li>
-          <li><b>Ettermiddag</b> De fire siste foredragene</li>
-          <li><b>Kveld</b> Gourmetmåltid ved Håvard og Kjetil på kjøkkenet</li>
-          <li><b>Kveld</b> Konsert med Steinar Kjeldsen</li>
-        </ul>
       </div>
+      <p>Lørdag går vi etter planen til Bossnuten – helgens mest krevende tur. Detaljene finner du i seksjonen under. Lørdag ettermiddag får vi de fire siste foredragene.</p>
+      <p>Så overtar Håvard og Kjetil kjøkkenet og leder oss inn i helgens store gourmetmåltid. Jeg kjenner ikke menyen, men har forstått nok til å glede meg. Utover kvelden byr Steinar Kjeldsen på seg selv.</p>
     </div>
 
     <div class="kap">
-      <div class="nr">04</div>
-      <div>
-        <h3>Søndag 1. november – Kaffe, oppsummering og hjemreise</h3>
-        <ul>
-          <li><b>Formiddag</b> Frokost, nødvendig kaffe og rydding</li>
-          <li><b>Før avreise</b> Kåring av helgens mest overbevisende midlertidige ekspert</li>
-          <li><b>Utpå dagen</b> Hjemreise – på gjensyn neste år</li>
-        </ul>
+      <div class="hode">
+        <div class="nr">04</div>
+        <h3>Søndag 1. november – kaffe, oppsummering og hjemreise</h3>
       </div>
+      <p>Vi spiser frokost, drikker den kaffen som trengs, rydder etter oss og vender hjem. Kanskje rekker vi også å kåre helgens mest overbevisende midlertidige ekspert. Prisen er foreløpig ikke bestemt, men juryen er utnevnt av meg og har ingen klageinstans.</p>
     </div>
   </div>
 </section>
 
-<section class="lordag" id="lordagsturen">
+<section id="fellesturer">
   <div class="wrap">
     <div class="kicker">Høydepunktene</div>
-    <h2>Fellesturene – én fredag, én lørdag</h2>
-    <div class="inn">
-      <div>
-        <h3 style="color:var(--coral);font-size:1.15rem;letter-spacing:.1em;margin-bottom:.6rem">Fredag: Vierli – Vidsyn – Silkedalen</h3>
-        <p>Fra Vierli går vi via skulpturen Vidsyn, videre mot Oksatjønn, over Storpungen og inn i selve Silkedalen, før vi vender tilbake. Rundt seks kilometer i åpent, flott fjellterreng med utsikt mot Møsvatn og Hardangervidda. Vi tar med lunsj og kaffe ut – og griller hvis forholdene ligger til rette. Turen får ta den tiden den tar; ingen trenger dokumentere personlig rekord på pulsklokka, og særlig ikke fortelle resten av oss om den.</p>
-        <h3 style="color:var(--coral);font-size:1.15rem;letter-spacing:.1em;margin:1.6rem 0 .6rem">Lørdag: Bossnuten</h3>
-        <p style="margin-bottom:0">Helgens mest krevende tur: 8,8 kilometer tur/retur og nær 500 høydemeter opp fra Varlandsveien, gjennom fjellbjørkeskogen mot toppen. Belønningen er vid utsikt mot Møsvatn, Gaustatoppen og Hardangervidda. Vi setter av god tid – også til dem som mener en topptur først er vellykket når man har fotografert minst tretti ganger. Endelig rute velges etter vær og føre; Falkeriset eller Skinnarbu/Møsvatn er alternativene.</p>
-      </div>
+    <h2>Fellesturene</h2>
+
+    <div class="tur-blk">
+      <div class="dag">Fredag 30. oktober</div>
+      <h3>Vierli – Vidsyn – Oksatjønn – Silkedalen</h3>
+      <p>Etter frokost kjører vi omtrent 15–20 minutter til Vierli. Derfra går vi via skulpturen Vidsyn, videre mot Oksatjønn, over Storpungen og inn i selve Silkedalen, før vi vender tilbake til Vierli. Turen er på rundt seks kilometer i fantastisk flott, åpent fjellterreng, med utsikt mot blant annet Møsvatn og Hardangervidda.</p>
+      <p>Vi tar med lunsj og kaffe ut, finner oss en fin plass og griller hvis forholdene ligger til rette for det. Turen skal få ta den tiden den tar. Ingen trenger å dokumentere personlig rekord på pulsklokka, og særlig ikke fortelle resten av oss om den.</p>
+      <div class="rute">Turen i korte trekk: Lognvik → Vierli → Vidsyn → Oksatjønn og Silkedalen → Vierli</div>
       <div class="fakta">
-        <h3>Praktisk info</h3>
-        <div><span>Base</span><span>Lognvik fjellstue</span></div>
-        <div><span>Fredagstur</span><span>Vierli–Silkedalen, ca. 6 km</span></div>
-        <div><span>Lørdagstur</span><span>Bossnuten, 8,8 km t/r</span></div>
-        <div><span>Høydemeter</span><span>Nær 500 (lørdag)</span></div>
-        <div><span>Tempo</span><span>Gemyttlig</span></div>
-        <div><span>Matpakke</span><span>Absolutt</span></div>
-        <div><span>Vær</span><span>Bestilt bra – ta med regntøy likevel</span></div>
-        <div><span>Ansvarlig</span><span>Thorbjørn</span></div>
+        <span>Ca. 6 km</span><span>Åpent fjellterreng</span><span>Utsikt: Møsvatn &amp; Hardangervidda</span><span>Lunsj &amp; kaffe ut</span>
       </div>
+      <a class="turlink" href="https://visitrauland.com/turforslag/vidsyn-silkedalen/" target="_blank" rel="noopener">🗺 Se turbeskrivelse og kart →</a>
+    </div>
+
+    <div class="tur-blk">
+      <div class="dag">Lørdag 31. oktober</div>
+      <h3>Bossnuten</h3>
+      <p>Dette er helgens mest krevende tur: omtrent 8,8 kilometer tur/retur og nær 500 høydemeter. Fra Varlandsveien går vi opp gjennom fjellbjørkeskogen og videre mot toppen. Belønningen er vid utsikt mot Møsvatn, Gaustatoppen og Hardangervidda. Vi tar med mat og drikke og setter av god tid, også til dem som mener at en topptur først er vellykket når man har stoppet for å fotografere den minst tretti ganger.</p>
+      <div class="rute">Turen i korte trekk: Lognvik → Varlandsveien → Bossnuten → samme vei tilbake</div>
+      <div class="fakta">
+        <span>8,8 km tur/retur</span><span>Nær 500 høydemeter</span><span>Utsikt: Møsvatn, Gaustatoppen &amp; Hardangervidda</span><span>Helgens krevende tur</span>
+      </div>
+      <a class="turlink" href="https://ut.no/turforslag/117514275/flott-topptur-til-bossnuten" target="_blank" rel="noopener">🗺 Se turbeskrivelse og kart →</a>
+    </div>
+
+    <p style="max-width:62ch;margin-bottom:1.4rem">Jeg har bestilt kjempebra vær hele helgen. Det er likevel mulig at Meteorologisk institutt ikke respekterer min myndighet. Ta derfor med ordentlige fjellklær og regntøy. Vi velger endelig lørdagstur etter vær og føre:</p>
+    <div class="alt-turer">
+      <a href="https://ut.no/turforslag/113157858/falkeriset" target="_blank" rel="noopener">
+        <div class="t">Alternativ 1: Falkeriset</div>
+        <div class="l">Hvis veien dit er åpen</div>
+      </a>
+      <a href="https://ut.no/turforslag/118147743/oldemorstien-ved-skinnarbu" target="_blank" rel="noopener">
+        <div class="t">Alternativ 2: Oldemorstien ved Skinnarbu</div>
+        <div class="l">Ved Skinnarbu og Møsvatn</div>
+      </a>
     </div>
   </div>
 </section>
@@ -242,7 +256,8 @@ if (sessionStorage.getItem('tur-ok') !== '8e805e94bff713ac91a46f0049c424a77fdecb
   <div class="wrap">
     <div class="kicker">Foredragssesjonene</div>
     <h2>Tolv foredrag – alle holder, alle hører</h2>
-    <p class="lead">Fire torsdag, fire fredag og fire lørdag: <b>hver og en holder et innlegg</b>, og <b>alle er med på alle</b>. Temaet er hemmelig til foredragsholderen reiser seg – ingen får dermed lese seg opp på forhånd for å stille plagsomt presise spørsmål. Lengde: minst fem og høyst ti minutter. Notater og hjelpemidler er lov; høytlesing av KI-tekst man selv ikke forstår, er fortsatt ikke det. Vinneren av årets presentasjon får vandrepokalen.</p>
+    <p class="lead">Planen er <b>tolv foredrag</b> – fire torsdag, fire fredag og fire lørdag. Temaet blir som kjent kjent først når foredragsholderen reiser seg. Vinneren av årets presentasjon får en vandrepokal.</p>
+    <p class="regler">Foredragene skal vare minst fem og høyst ti minutter. Notater og hjelpemidler er lov. Å lese høyt fra en KI-generert tekst man selv ikke forstår, er fortsatt ikke det. Publikum kommer til å merke forskjellen, og enkelte av dem vil neppe holde det for seg selv.</p>
     <div class="slotrutenett">
       <div class="slot"><div class="nr">01</div><div class="lbl">Torsdag</div><div class="navn">Karsten Torp</div><div class="tittel">Tema: hemmelig</div></div>
       <div class="slot"><div class="nr">02</div><div class="lbl">Torsdag</div><div class="navn">Jan Olav Antonsen</div><div class="tittel">Tema: hemmelig</div></div>
@@ -266,7 +281,7 @@ if (sessionStorage.getItem('tur-ok') !== '8e805e94bff713ac91a46f0049c424a77fdecb
     <div class="kicker">Lørdag kveld</div>
     <h2>Konsert med<br>Steinar Kjeldsen</h2>
     <p class="quote">«Byr på seg selv – og øser fra sitt indre landskap»</p>
-    <p>Viser, historier og stemninger fra Kjeldsens indre geografi. Det har blitt både latter og allsang tidligere, og det blir det igjen. Kle deg varmt og still med åpent sinn.</p>
+    <p>Viser, historier og stemninger fra Kjeldsens indre geografi. Det har blitt både latter og allsang tidligere, og det blir det igjen.</p>
     <div class="details">
       <span>Tid: Lørdag kveld</span><span>Sted: Peisestua</span><span>Allsang: Sannsynlig</span>
     </div>
@@ -279,25 +294,24 @@ if (sessionStorage.getItem('tur-ok') !== '8e805e94bff713ac91a46f0049c424a77fdecb
     <h2>Praktisk info</h2>
     <div class="kolonner">
       <div>
-        <h3>Huset byr på</h3>
-        <ul>
-          <li>Peisestue, stort kjøkken, badstue, biljard og bordtennis</li>
-          <li>God plass til tolv menn med hver sin bag og sine sære inngrodde vaner</li>
-          <li>Fiske i østre Lognvikvatn – fiskekort inkludert, båt kan lånes (ta med egen redningsvest)</li>
-          <li>Minst én av aktivitetene vil bli tatt langt mer alvorlig enn noen innrømmer</li>
-        </ul>
+        <h3>Fiske, båt og husets øvrige fristelser</h3>
+        <p>Vi kan fiske i østre del av Lognvikvatnet, og fiskekort til alle er inkludert. Vi får låne båt. Ta med fiskeutstyr hvis du vil prøve deg, og egen redningsvest hvis du skal ut i båten.</p>
+        <p>Fjellstua har dessuten badstue, biljard og bordtennis. Min erfaring med denne gjengen tilsier at minst én av aktivitetene vil bli tatt langt mer alvorlig enn noen er villige til å innrømme.</p>
       </div>
       <div>
         <h3>Pakkeliste for fjell og fag</h3>
         <ul>
           <li>Gode fjellsko, varme klær og regntøy – bare som en formalitet, selvsagt</li>
           <li>Liten tursekk, sitteunderlag og gjerne termos</li>
-          <li>Hodelykt – det blir mørkt tidligere enn vi husker fra ungdommen</li>
+          <li>Hodelykt. Det blir mørkt tidligere enn vi husker fra ungdommen</li>
           <li>Fiskestang og redningsvest hvis du vil bruke båten</li>
           <li>Det du trenger til ditt hemmelige foredrag</li>
-          <li>Har du en liten projektor? Gi Thorbjørn beskjed</li>
         </ul>
       </div>
+    </div>
+    <div class="prosjektoren">
+      <b>Prosjektor-etterlysning</b>
+      Har noen en liten projektor vi kan ta med? Gi meg beskjed. Da kan de som ønsker det, vise bilder eller en enkel presentasjon. Vi finner en egnet vegg og sørger for at noen tar med riktig kabel – et punkt hvor vår generasjon fortsatt har et klart konkurransefortrinn.
     </div>
   </div>
 </section>
@@ -325,9 +339,15 @@ if (sessionStorage.getItem('tur-ok') !== '8e805e94bff713ac91a46f0049c424a77fdecb
   </div>
 </section>
 
+<div class="signatur">
+  <p class="hilsen">«Jeg gleder meg til fjellet, måltidene, den høyst usikre ekspertisen og ikke minst til å samle hele gjengen igjen. Det blir godt å se dere.»</p>
+  <div class="hvem">Hilsen Thorbjørn</div>
+  <div class="rolle">Årets arrangør, møteleder og eneveldige fagkomité</div>
+</div>
+
 <footer>
   <div class="mark">På gjensyn <b>i 2027</b></div>
-  <p>Thorbjørn – årets arrangør, møteleder og eneveldige fagkomité.</p>
+  <p>Klokkeslettene holder vi litt åpne – helgen skal først og fremst kjennes som en helg med gamle venner, med innslag av uventet kunnskap.</p>
   <div class="logout" onclick="sessionStorage.removeItem('tur-ok');location.href='index.html'">Logg ut</div>
 </footer>
 
