@@ -112,11 +112,17 @@ h2{font-size:clamp(1.9rem,4.5vw,2.9rem);font-weight:700;line-height:1.05;margin-
 .vids{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2.5rem}
 .vids figure{background:var(--plum);border-radius:10px;overflow:hidden}
 .vids video{width:100%;aspect-ratio:16/9;object-fit:cover;background:#000}
-.bilder{display:grid;grid-template-columns:1.3fr 1fr;gap:1.5rem}
-.bilder figure{border-radius:10px;overflow:hidden}
-.bilder figure:first-child{grid-row:span 2}
-.bilder img{width:100%;height:100%;object-fit:cover}
-@media(max-width:720px){.vids{grid-template-columns:1fr}.bilder{grid-template-columns:1fr}.bilder figure:first-child{grid-row:auto}}
+.bilder{columns:3;column-gap:1.2rem}
+.bilder figure{border-radius:10px;overflow:hidden;margin-bottom:1.2rem;break-inside:avoid;cursor:pointer;transition:transform .2s}
+.bilder figure:hover{transform:scale(1.02)}
+.bilder img{width:100%;height:auto}
+@media(max-width:900px){.bilder{columns:2}}
+@media(max-width:720px){.vids{grid-template-columns:1fr}.bilder{columns:1}}
+
+/* Lysboks for galleri */
+.lysboks{position:fixed;inset:0;background:rgba(21,17,34,.92);z-index:100;display:flex;align-items:center;justify-content:center;padding:2rem;cursor:pointer}
+.lysboks img{max-width:100%;max-height:100%;border-radius:8px}
+.lysboks .lukk{position:absolute;top:1.2rem;right:1.5rem;color:#faf6ef;font-family:'Oswald';font-size:.8rem;letter-spacing:.2em;text-transform:uppercase}
 
 /* Signatur */
 .signatur{background:var(--paper);text-align:center;padding:4rem 1.5rem}
@@ -197,7 +203,7 @@ if (sessionStorage.getItem('tur-ok') !== '8e805e94bff713ac91a46f0049c424a77fdecb
         <h3>Lørdag 31. oktober – Bossnuten</h3>
       </div>
       <p>Lørdag går vi etter planen til Bossnuten – helgens mest krevende tur. Detaljene finner du i seksjonen under. Lørdag ettermiddag får vi de fire siste foredragene.</p>
-      <p>Så overtar Håvard og Kjetil kjøkkenet og leder oss inn i helgens store gourmetmåltid. Jeg kjenner ikke menyen, men har forstått nok til å glede meg. Utover kvelden blir det vinsmaking, dans og allsang.</p>
+      <p>Så overtar Håvard og Kjetil kjøkkenet og leder oss inn i helgens store gourmetmåltid. Jeg kjenner ikke menyen, men har forstått nok til å glede meg. Utover kvelden byr Steinar Kjeldsen på seg selv.</p>
     </div>
 
     <div class="kap">
@@ -205,7 +211,7 @@ if (sessionStorage.getItem('tur-ok') !== '8e805e94bff713ac91a46f0049c424a77fdecb
         <div class="nr">04</div>
         <h3>Søndag 1. november – kaffe, oppsummering og hjemreise</h3>
       </div>
-      <p>Vi spiser frokost, drikker den kaffen som trengs, Kjetil regner ut alkoholinvået, når han gir oss grønt lys for å kjøre vender vi hjemover. Vi rydder ikke etter oss. Tilslutt skal vi kåre helgens mest overbevisende foredragsholder.</p>
+      <p>Vi spiser frokost, drikker den kaffen som trengs, rydder etter oss og vender hjem. Kanskje rekker vi også å kåre helgens mest overbevisende midlertidige ekspert. Prisen er foreløpig ikke bestemt, men juryen er utnevnt av meg og har ingen klageinstans.</p>
     </div>
   </div>
 </section>
@@ -238,7 +244,7 @@ if (sessionStorage.getItem('tur-ok') !== '8e805e94bff713ac91a46f0049c424a77fdecb
       <a class="turlink" href="https://ut.no/turforslag/117514275/flott-topptur-til-bossnuten" target="_blank" rel="noopener">🗺 Se turbeskrivelse og kart →</a>
     </div>
 
-    <p style="max-width:62ch;margin-bottom:1.4rem">Det blir kjempebra vær hele helgen. Det er likevel mulig at Meteorologisk institutt ikke respekterer min myndighet. Ta derfor med ordentlige fjellklær og regntøy. Vi velger endelig lørdagstur etter vær og føre:</p>
+    <p style="max-width:62ch;margin-bottom:1.4rem">Jeg har bestilt kjempebra vær hele helgen. Det er likevel mulig at Meteorologisk institutt ikke respekterer min myndighet. Ta derfor med ordentlige fjellklær og regntøy. Vi velger endelig lørdagstur etter vær og føre:</p>
     <div class="alt-turer">
       <a href="https://ut.no/turforslag/113157858/falkeriset" target="_blank" rel="noopener">
         <div class="t">Alternativ 1: Falkeriset</div>
@@ -281,7 +287,7 @@ if (sessionStorage.getItem('tur-ok') !== '8e805e94bff713ac91a46f0049c424a77fdecb
     <div class="kicker">Lørdag kveld</div>
     <h2>Konsert med<br>Steinar Kjeldsen</h2>
     <p class="quote">«Byr på seg selv – og øser fra sitt indre landskap»</p>
-    <p>Bli kjent med Kjeldsens indre geografi.</p>
+    <p>Viser, historier og stemninger fra Kjeldsens indre geografi. Det har blitt både latter og allsang tidligere, og det blir det igjen.</p>
     <div class="details">
       <span>Tid: Lørdag kveld</span><span>Sted: Peisestua</span><span>Allsang: Sannsynlig</span>
     </div>
@@ -329,15 +335,32 @@ if (sessionStorage.getItem('tur-ok') !== '8e805e94bff713ac91a46f0049c424a77fdecb
         <video controls preload="metadata" src="assets/minne-video-2.mp4"></video>
       </figure>
     </div>
-    <div class="bilder">
-      <figure><img src="assets/minne-bilde-1.jpg" alt="Gjengen ute på tur, i morgenlys foran en låve"></figure>
-      <figure><img src="assets/minne-bilde-2.jpg" alt="Tre karer på takterrasse med utsikt over byens tårn"></figure>
-      <figure><img src="assets/minne-bilde-3.jpg" alt="To karer på et utsiktspunkt med vidstrakt dal bak seg"></figure>
-      <figure><img src="assets/minne-bilde-4.jpg" alt="To karer i fjellet ved et stille vatn"></figure>
-      <figure><img src="assets/minne-bilde-5.jpg" alt="Pølsegrilling over livlig bål"></figure>
-    </div>
+    <div class="bilder" id="galleri"><!-- Bildene legges inn automatisk fra assets/bilder.js --></div>
   </div>
 </section>
+<script src="assets/bilder.js"></script>
+<script>
+(function(){
+  var g=document.getElementById('galleri');
+  (window.GALLERY_IMAGES||[]).forEach(function(src){
+    var f=document.createElement('figure');
+    var img=document.createElement('img');
+    img.src=src; img.alt='Minne fra tidligere tur'; img.loading='lazy';
+    f.appendChild(img);
+    f.addEventListener('click',function(){
+      var b=document.createElement('div');
+      b.className='lysboks';
+      b.innerHTML='<div class="lukk">Lukk ✕</div>';
+      var stort=document.createElement('img');
+      stort.src=src;
+      b.appendChild(stort);
+      b.addEventListener('click',function(){b.remove()});
+      document.body.appendChild(b);
+    });
+    g.appendChild(f);
+  });
+})();
+</script>
 
 <div class="signatur">
   <p class="hilsen">«Jeg gleder meg til fjellet, måltidene, den høyst usikre ekspertisen og ikke minst til å samle hele gjengen igjen. Det blir godt å se dere.»</p>
